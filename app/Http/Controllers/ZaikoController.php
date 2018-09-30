@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 
 class ZaikoController extends Controller
 {
@@ -52,7 +53,7 @@ class ZaikoController extends Controller
         $stock->productionOrderId = $request->productionOrderId;
         $stock->itemNo = $request->itemNo;
         $stock->currentAmount = $request->currentAmount;
-        $stock->updateUserId = 'user';
+        $stock->updateUserId = Auth::user()->userId;
         $stock->save();
 
         //履歴保存
