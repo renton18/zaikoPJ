@@ -17,6 +17,7 @@ Route::get('/', function () {
 Route::get('topmenu', function () {
     return view('/topmenu');
 });
+
 // Route::resource('zaikos', 'ZaikoController');
 Route::group(['prefix' => 'zaikos'], function () {
     //一覧
@@ -29,14 +30,15 @@ Route::group(['prefix' => 'zaikos'], function () {
     Route::post('delete/{id}/', 'ZaikoController@delete');
 });
 
-Route::group(['prefix' => 'user'], function () {
-    Route::get('create', 'UserController@create'); //入力
-    Route::post('create', 'UserController@store'); //保存
-    Route::get('login', 'UserController@getLogin'); //入力
-    Route::post('login', 'UserController@postLogin'); //認証
-});
+// Route::group(['prefix' => 'user'], function () {
+//     Route::get('create', 'UserController@create'); //入力
+//     Route::post('create', 'UserController@store'); //保存
+//     Route::get('login', 'UserController@getLogin'); //入力
+//     Route::post('login', 'UserController@postLogin'); //認証
+// });
 
 Route::resource('history', 'HistoryController');
+Route::resource('item', 'ItemController');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');

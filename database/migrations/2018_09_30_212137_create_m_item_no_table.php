@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateZaikosTable extends Migration
+class CreateMItemNoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,13 @@ class CreateZaikosTable extends Migration
      */
     public function up()
     {
-        Schema::create('t_stock', function (Blueprint $table) {
+        Schema::create('m_item', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('productionOrderId');
-            $table->string('itemNo');
-            $table->integer('currentAmount');
+            $table->string('itemNo')->unique;
+            $table->string('diagramNo');
+            $table->string('diagramName');
             $table->string('updateUserId');
             $table->timestamps();
-            $table->unique(['productionOrderId', 'itemNo']);
         });
     }
 
@@ -31,6 +30,6 @@ class CreateZaikosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('zaikos');
+        Schema::dropIfExists('m_item');
     }
 }
