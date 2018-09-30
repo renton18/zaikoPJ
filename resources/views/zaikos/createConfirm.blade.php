@@ -1,28 +1,23 @@
 @extends('layouts.application')
-@section('title', '新規作成')
-
+@section('title', '入庫確認')
 @section('content')
+
 <form action="" method="post" class="form-horizontal">
     {{ csrf_field() }}
-    <input type="hidden" name="sk" value="{{$sk}}">
-    <input type="hidden" name="model" value="{{$model}}">
+    <input type="hidden" name="productionOrderId" value="{{$productionOrderId}}">
     <input type="hidden" name="itemNo" value="{{$itemNo}}">
-    <input type="hidden" name="number" value="{{$number}}">
+    <input type="hidden" name="currentAmount" value="{{$currentAmount}}">
     <div class="row">
-        <label class="col-sm-4 control-label">sk番号</label>
-        <div class="col-sm-8">{{$sk}}</div>
+        <label class="col-sm-8 control-label">生産指示No</label>
+        <div class="col-sm-8">{{$productionOrderId}}</div>
     </div>
     <div class="row">
-        <label class="col-sm-4 control-label">機種</label>
-        <div class="col-sm-8">{{$model}}</div>
-    </div>
-    <div class="row">
-        <label class="col-sm-4 control-label">品番</label>
+        <label class="col-sm-8 control-label">品番</label>
         <div class="col-sm-8">{{$itemNo}}</div>
     </div>
     <div class="row">
-        <label class="col-sm-4 control-label">使用数</label>
-        <div class="col-sm-8">{{$number}}</div>
+        <label class="col-sm-8 control-label">数量</label>
+        <div class="col-sm-8">{{$currentAmount}}</div>
     </div>
     <div class="row" style="margin-top: 30px;">
         <div class="col-sm-offset-4 col-sm-8">
@@ -30,4 +25,5 @@
         </div>
     </div>
 </form>
+
 @endsection

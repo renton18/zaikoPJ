@@ -22,7 +22,7 @@
 
     <div class="form-group">
         <div class="col-sm-offset-3 col-sm-9">
-            <input type="hidden" name="password" class="form-control" id="password" placeholder="パスワード">
+            <input type="hidden" name="password" class="form-control" id="password" value="" placeholder="パスワード">
             <button type="submit" class="btn btn-primary btn-block">新規登録</button>
         </div>
         <!--/form-group-->

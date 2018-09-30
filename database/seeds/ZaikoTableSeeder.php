@@ -11,30 +11,30 @@ class ZaikoTableSeeder extends Seeder
      */
     public function run()
     {
-        \DB::table('zaikos')->delete();
-        \DB::table('zaikos')->insert([
-            'sk' => 'sk100001',
-            'model' => 'ck2',
+        \DB::table('t_stock')->delete();
+        \DB::table('t_stock')->insert([
+            'productionOrderId' => '100001',
             'itemNo' => 'item0001',
-            'number' => '10'
+            'currentAmount' => '10',
+            'updateUserId' => 'user'
             ]);
-        \DB::table('zaikos')->insert([
-            'sk' => 'sk100002',
-            'model' => 'ck2',
+        \DB::table('t_stock')->insert([
+            'productionOrderId' => '100002',
             'itemNo' => 'item0002',
-            'number' => '30'
+            'currentAmount' => '10',
+            'updateUserId' => 'user'
             ]);
-        \DB::table('zaikos')->insert([
-            'sk' => 'sk100003',
-            'model' => 'ck2',
+        \DB::table('t_stock')->insert([
+            'productionOrderId' => '100003',
             'itemNo' => 'item0003',
-            'number' => '20'
+            'currentAmount' => '10',
+            'updateUserId' => 'user'
             ]);
-        \DB::table('zaikos')->insert([
-            'sk' => 'sk100004',
-            'model' => 'ck2',
+        \DB::table('t_stock')->insert([
+            'productionOrderId' => '100004',
             'itemNo' => 'item0004',
-            'number' => '15'
+            'currentAmount' => '10',
+            'updateUserId' => 'user'
             ]);
     }
 }

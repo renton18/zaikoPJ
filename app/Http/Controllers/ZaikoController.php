@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 class ZaikoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,8 +18,8 @@ class ZaikoController extends Controller
     public function index()
     {
         // $zaikos = \App\Models\zaiko::all();
-        $zaikos = \App\Models\zaiko::orderBy('created_at', 'desc')->paginate(10);
-        return view('zaikos.index', ['zaikos' => $zaikos]);
+        $stocks = \App\Models\stock::orderBy('created_at', 'desc')->paginate(10);
+        return view('zaikos.index', ['stocks' => $stocks]);
     }
 
     /**
@@ -31,8 +35,6 @@ class ZaikoController extends Controller
     public function createConfirm(\App\Http\Requests\ZaikoValidationRequest $request)
     {
         $data = $request->all();
-        // return view('zaikos.createConfirm');
-        // logger($data);
         return view('zaikos.createConfirm')->with($data);
     }
 
@@ -45,25 +47,23 @@ class ZaikoController extends Controller
      */
     public function store(Request $request)
     {
-        // Studentオブジェクト生成
-        $zaiko = new \App\Models\zaiko();
-        // 値の登録
-        $zaiko->sk = $request->sk;
-        $zaiko->model = $request->model;
-        $zaiko->itemNo = $request->itemNo;
-        $zaiko->number = $request->number;
-        // 保存
-        $zaiko->save();
-        // 一覧にリダイレクト
+        //在庫保存
+        $stock = new \App\Models\stock();
+        $stock->productionOrderId = $request->productionOrderId;
+        $stock->itemNo = $request->itemNo;
+        $stock->currentAmount = $request->currentAmount;
+        $stock->updateUserId = 'user';
+        $stock->save();
+
+        //履歴保存
+
+
         return redirect()->to('zaikos/create');
     }
     public function delete($id)
     {
-        //削除対象レコードを検索
-        $user = \App\Models\zaiko::find($id);
-        //削除
-        $user->delete();
-        //リダイレクト
+        $stock = \App\Models\stock::find($id);
+        $stock->delete();
         return redirect()->to('zaikos');
     }
 

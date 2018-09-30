@@ -24,13 +24,14 @@ class ZaikoValidationRequest extends FormRequest
     public function rules()
     {
         return [
-            'sk'=>'required',
+            'productionOrderId'=>'required',
+            'itemNo'=>'required',
+            'currentAmount'=>'required|numeric'
             ];
     }
 
     public function messages() {
         return [
-        "required" => "必須項目です。"
         ];
       }
 }

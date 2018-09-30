@@ -12,11 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('/auth/login');
 });
-
+Route::get('topmenu', function () {
+    return view('/topmenu');
+});
 // Route::resource('zaikos', 'ZaikoController');
-
 Route::group(['prefix' => 'zaikos'], function () {
     //一覧
     Route::get('', 'ZaikoController@index');
@@ -37,3 +38,5 @@ Route::group(['prefix' => 'user'], function () {
 
 Route::resource('history', 'HistoryController');
 
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');

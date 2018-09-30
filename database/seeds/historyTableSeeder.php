@@ -11,6 +11,15 @@ class historyTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        \DB::table('t_stockhistory')->delete();
+        \DB::table('t_stockhistory')->insert([
+            'productionOrderId' => 'p000011',
+            'itemNo' => 'item0001',
+            'orderCategory' => '入庫',
+            'amount' => '10',
+            'updateUserId' => 'user',
+            'updated_at' => new Datetime(),
+            'created_at' => new Datetime()
+            ]);
     }
 }

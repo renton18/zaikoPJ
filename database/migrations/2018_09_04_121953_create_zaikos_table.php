@@ -13,13 +13,14 @@ class CreateZaikosTable extends Migration
      */
     public function up()
     {
-        Schema::create('zaikos', function (Blueprint $table) {
+        Schema::create('t_stock', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('sk');
-            $table->string('model');
+            $table->string('productionOrderId');
             $table->string('itemNo');
-            $table->string('number');
+            $table->string('currentAmount');
+            $table->string('updateUserId');
             $table->timestamps();
+            $table->unique(['productionOrderId', 'itemNo']);
         });
     }
 
