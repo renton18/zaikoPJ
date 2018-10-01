@@ -1,5 +1,5 @@
 @extends('layouts.application')
-@section('title', 'MENU')
+@section('title', '在庫管理')
 @section('script')
 <script>
   $(function() {
@@ -16,7 +16,7 @@
 @endsection
 @section('content')
 <div class="col-sm-12" style="text-align:center;">
-  <h1><small>在庫一覧</small></h1>
+  <!-- <h4><small>在庫管理</small></h4> -->
   <table class="table table-striped table-hover">
     <thead>
       <tr>

@@ -14,9 +14,8 @@
 Route::get('/', function () {
     return view('/auth/login');
 });
-Route::get('topmenu', function () {
-    return view('/topmenu');
-});
+
+Route::get('topmenu', 'ZaikoController@index');
 
 // Route::resource('zaikos', 'ZaikoController');
 Route::group(['prefix' => 'zaikos'], function () {
