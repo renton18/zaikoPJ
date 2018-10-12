@@ -16,11 +16,22 @@ class ZaikoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        // $zaikos = \App\Models\zaiko::all();
-        $stocks = \App\Models\stock::orderBy('created_at', 'desc')->paginate(10);
-        return view('zaikos.index', ['stocks' => $stocks]);
+        $itenNoKeyword = $request->itenNoKeyword;
+        $skKeyword = $request->skKeyword;
+
+        $query = \App\Models\stock::query();
+ 
+        if (!empty($itenNoKeyword)) {
+            $query->where('itemNo', 'like', '%'.$itenNoKeyword.'%');
+        }
+        if (!empty($skKeyword)) {
+            $query->orWhere('sk', 'like', '%'.$skKeyword.'%');
+        }
+
+        $stocks = $query->orderBy('created_at', 'desc')->paginate(10);
+        return view('zaikos.index', ['stocks' => $stocks, 'request' => $request]);
     }
 
     /**

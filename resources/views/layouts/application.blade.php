@@ -17,6 +17,7 @@
         <!-- <a class="navbar-brand" href="{{ url('/topmenu') }}">
           Top
         </a> -->
+        <a href="javascript:history.back()">前に戻る</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
           <span class="navbar-toggler-icon"></span>

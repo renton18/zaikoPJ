@@ -15,8 +15,20 @@
 </script>
 @endsection
 @section('content')
+
 <div class="col-sm-12" style="text-align:center;">
-  <!-- <h4><small>在庫管理</small></h4> -->
+
+  <!--↓↓ 検索フォーム ↓↓-->
+  <div class="col-sm-12" style="padding-left:0px;">
+    <form class="form-inline" action="{{url('/zaikos')}}">
+      <div class="form-group">
+        <input type="text" name="itenNoKeyword" value="{{ $request->itenNoKeyword }}" class="form-control" placeholder="品番">
+        <input type="text" name="skKeyword" value="{{ $request->skKeyword }}" class="form-control" placeholder="SK">      
+      <input type="submit" value="検索" class="btn btn-info">
+    </form>
+  </div>
+  <!--↑↑ 検索フォーム ↑↑-->
+
   <table class="table table-striped table-hover">
     <thead>
       <tr>
@@ -40,7 +52,7 @@
           <div style="display:flex;">
             <a href="show/{{$stock->id}}" class="btn btn-primary btn-sm">詳細</a>&nbsp;
             <a href="edit/{{$stock->id}}" class="btn btn-primary btn-sm">編集</a>&nbsp;
-            <form action="delete/{{$stock->id}}" method="POST">
+            <form action="zaikos/delete/{{$stock->id}}" method="POST">
               {{ csrf_field() }}
               <input type="submit" value="削除" class="btn btn-danger btn-sm btn-dell">
             </form>

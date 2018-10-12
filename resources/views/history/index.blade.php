@@ -18,7 +18,6 @@
 
 @section('content')
 <div class="col-sm-12" style="text-align:center;">
-  <h1><small>履歴</small></h1>
   <table class="table table-striped table-hover">
     <thead>
       <tr>
