@@ -6,12 +6,14 @@
   <title>@yield('title')</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="{{ asset('css/app.css') }}" rel="stylesheet" media="screen">
-  <link href="{{ url('/') }}/dist/css/flat-ui.min.css" rel="stylesheet"><!-- Loading Flat UI -->
+  <link rel="stylesheet" href="{{ url('/') }}/bootstrap.min.css" />
+  <!-- <link href="{{ url('/') }}/dist/css/flat-ui.min.css" rel="stylesheet"> -->
+
   <link href="/css/sticky-footer.css" rel="stylesheet" media="screen">
 </head>
 
 <body>
-  <div id="app">
+  <div id="app"> 
     <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
       <div class="container">
         <!-- <a class="navbar-brand" href="{{ url('/topmenu') }}">

@@ -29,7 +29,7 @@
   </div>
   <!--↑↑ 検索フォーム ↑↑-->
 
-  <table class="table table-striped table-hover">
+  <table class="table table-condensed table-striped table-hover">
     <thead>
       <tr>
         <th>生産指示No</th>

@@ -18,7 +18,7 @@
       <input type="text" class="form-control" id="itemNo" name="itemNo" value="{{old('itemNo')}}">
     </div>
   </div>
-  <div class="form-group @if($errors->has('currentAmount')) has-error @endif">
+  <div class="form-group @if($errors->has('currentAmount')) has-error @endif"> 
     <label for="currentAmount" class="col-md-9 control-label">数量</label>
     <div class="col-md-9">
       <input type="text" class="form-control" id="currentAmount" name="currentAmount" value="{{old('currentAmount')}}">
