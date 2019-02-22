@@ -16,6 +16,33 @@
 @endsection
 @section('content')
 
+@if(Session::has('flashmessage'))
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+<script>
+  $(window).load(function() {
+  $('#modal_box').modal('show');
+  });
+</script>
+
+<!-- モーダルウィンドウの中身 -->
+<div class="modal fade" id="modal_box" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">受講生 APP</h4>
+      </div>
+      <div class="modal-body">
+        {{ session('flashmessage') }}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+      </div>
+    </div>
+  </div>
+</div>
+@endif
+
 <div class="col-sm-12" style="text-align:center;">
 
   <!--↓↓ 検索フォーム ↓↓-->
@@ -23,8 +50,8 @@
     <form class="form-inline" action="{{url('/zaikos')}}">
       <div class="form-group">
         <input type="text" name="itenNoKeyword" value="{{ $request->itenNoKeyword }}" class="form-control" placeholder="品番">
-        <input type="text" name="skKeyword" value="{{ $request->skKeyword }}" class="form-control" placeholder="SK">      
-      <input type="submit" value="検索" class="btn btn-info">
+        <input type="text" name="skKeyword" value="{{ $request->skKeyword }}" class="form-control" placeholder="SK">
+        <input type="submit" value="検索" class="btn btn-info">
     </form>
   </div>
   <!--↑↑ 検索フォーム ↑↑-->
@@ -50,7 +77,7 @@
         <td>{{$stock->updated_at}}</td>
         <td size="10">
           <div style="display:flex;">
-            <a href="show/{{$stock->id}}" class="btn btn-primary btn-sm">詳細</a>&nbsp;
+            <a href="/zaikos/show/{{$stock->id}}" class="btn btn-primary btn-sm">詳細</a>&nbsp;
             <a href="edit/{{$stock->id}}" class="btn btn-primary btn-sm">編集</a>&nbsp;
             <form action="zaikos/delete/{{$stock->id}}" method="POST">
               {{ csrf_field() }}

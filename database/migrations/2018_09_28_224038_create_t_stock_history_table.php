@@ -17,11 +17,18 @@ class CreateTStockHistoryTable extends Migration
             $table->increments('id');
             $table->string('productionOrderId');
             $table->string('itemNo');
+            $table->integer('orderItemNoSequence');
+            $table->string('location');
+            $table->string('locationNumber');
             $table->string('orderCategory');
             $table->integer('amount');
+            $table->integer('beforeAmount')-nullable();
+            $table->integer('afterAmount')-nullable();
+            $table->orderNo('orderNo')-nullable();
+            $table->orderNo('note')-nullable();
             $table->string('updateUserId');
             $table->timestamps();
-            $table->unique(['productionOrderId', 'itemNo']);
+            $table->unique(['productionOrderId', 'itemNo', 'orderItemNoSequence', 'locationNUmber']);
         });
     }
 
@@ -32,6 +39,6 @@ class CreateTStockHistoryTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('t_stockHistory');
+        Schema::dropIfExists('t_stockhistory');
     }
 }

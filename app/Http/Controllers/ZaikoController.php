@@ -88,6 +88,7 @@ class ZaikoController extends Controller
      */
     public function show($id)
     {
+        return redirect()->to('zaikos')->with('flashmessage', '登録が完了いたしました。');
     }
 
     /**

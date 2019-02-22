@@ -17,10 +17,12 @@ class CreateZaikosTable extends Migration
             $table->increments('id');
             $table->string('productionOrderId');
             $table->string('itemNo');
+            $table->string('location');
+            $table->string('locationNumber');
             $table->integer('currentAmount');
             $table->string('updateUserId');
             $table->timestamps();
-            $table->unique(['productionOrderId', 'itemNo']);
+            $table->unique(['productionOrderId', 'itemNo', 'location', 'locationNumber']);
         });
     }
 
@@ -31,6 +33,6 @@ class CreateZaikosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('zaikos');
+        Schema::dropIfExists('t_stock');
     }
 }

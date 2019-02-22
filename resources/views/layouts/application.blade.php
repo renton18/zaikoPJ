@@ -8,7 +8,6 @@
   <link href="{{ asset('css/app.css') }}" rel="stylesheet" media="screen">
   <link rel="stylesheet" href="{{ url('/') }}/bootstrap.min.css" />
   <!-- <link href="{{ url('/') }}/dist/css/flat-ui.min.css" rel="stylesheet"> -->
-
   <link href="/css/sticky-footer.css" rel="stylesheet" media="screen">
 </head>
 

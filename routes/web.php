@@ -27,6 +27,8 @@ Route::group(['prefix' => 'zaikos'], function () {
     Route::post('create', 'ZaikoController@store'); //保存
     //削除
     Route::post('delete/{id}/', 'ZaikoController@delete');
+    //削除
+    Route::get('show/{id}/', 'ZaikoController@show');
 });
 
 // Route::group(['prefix' => 'user'], function () {
